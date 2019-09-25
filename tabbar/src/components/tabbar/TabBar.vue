@@ -1,5 +1,5 @@
 <template>
-  <div id="tar-bar">
+  <div id="tab-bar">
     <slot></slot>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style>
-#tar-bar {
+#tab-bar {
   display: flex;
   background: #f6f6f6;
   position: fixed;

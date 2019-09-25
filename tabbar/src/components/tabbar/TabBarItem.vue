@@ -1,5 +1,5 @@
 <template>
-  <div class="tar-bar-item" @click="itemClick">
+  <div class="tab-bar-item" @click="itemClick">
     <div v-if="!isActive">
       <slot name="item-icon"></slot>
     </div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "TarBarItem",
+  name: "TabBarItem",
   props: {
     path: String,
     activeColor: {
@@ -32,10 +32,7 @@ export default {
     itemClick() {
       if (this.$route.path != this.path) {
         this.$router.replace(this.path);
-      } else {
-        console.log("dianguole");
-      }
-      // this.$router.replace(this.path)
+      } 
     }
   },
   computed: {
@@ -50,13 +47,13 @@ export default {
 </script>
 
 <style>
-.tar-bar-item {
+.tab-bar-item {
   flex: 1;
   height: 49px;
   text-align: center;
   font-size: 14px;
 }
-.tar-bar-item img {
+.tab-bar-item img {
   height: 24px;
   width: 24px;
   margin-top: 3px;

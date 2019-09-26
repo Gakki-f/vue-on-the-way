@@ -3,7 +3,7 @@ export function request(config){
     // 1.创建axios的实例
     const instance = axios.create({
         baseURL:'http://123.207.32.32:8000/api/v1',
-        timeout:5000
+        timeout:15000
     })
     //2.1请求拦截的作用
     instance.interceptors.request.use(config=>{

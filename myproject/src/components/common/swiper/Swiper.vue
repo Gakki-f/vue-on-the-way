@@ -1,43 +1,90 @@
 <template>
-    <div class="swiper-container swiper-container1">
-        <div class="swiper-wrapper">
-            <slot name="swiper-item"></slot>
-        </div>
-        <div class="swiper-pagination swiper-pagination1"></div>
-        <div class="swiper-button-next next1"></div>
-        <div class="swiper-button-prev prev1"></div>
+  <div class="swiper-container" :class="swipeid">
+    <div class="swiper-wrapper">
+      <slot name="swiper-item"></slot>
     </div>
+    <slot name="swiper-pagination"></slot>
+    <slot name="swiper-button-next"></slot>
+    <slot name="swiper-button-prev"></slot>
+  </div>
 </template>
 
 <script>
 import Swiper from "swiper";
 import "assets/css/swiper.min.css";
 export default {
-    name: "Swiper",
-    props: {
+  name: "Swiper",
+  props: {
+    swipeid: {
+      type: String,
+      default: ""
     },
-    data() {
-        return {};
+    effect: {
+      type: String,
+      default: "slide"
     },
-    mounted() {
-        var mySwiper = new Swiper(".swiper-container1", {
-            autoplay: true,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination1",
-                clickable: true
-            },
-            navigation: {
-                nextEl: ".next1",
-                prevEl: ".prev1"
-            }
-        });
+    loop: {
+      type: Boolean,
+      default: false
+    },
+    direction: {
+      type: String,
+      default: "horizontal"
+    },
+    pagination: {
+      type: Boolean,
+      default: true
+    },
+    paginationType: {
+      type: String,
+      default: "bullets"
+    },
+    autoPlay: {
+      type: Object,
+      default() {
+        return {
+          delay: 3000,
+          stopOnLastSlide: false,
+          disableOnInteraction: true
+        };
+      }
+    },
+    speed: {
+      type: Number,
+      default: 300
+    },
+    slidesPerView: {
+      type: Number,
+      default: 'auto'
     }
+  },
+  data() {
+    return {};
+  },
+  mounted() {
+    var mySwiper = new Swiper(".swiper-container", {
+      autoplay: this.autoPlay,
+      loop: this.loop,
+      effect: this.effect,
+      paginationType: this.paginationType,
+      direction: this.direction,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      speed: this.speed,
+      slidesPerView: this.slidesPerView,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      observer: true, //修改swiper自己或子元素时，自动初始化swiper
+      observeParents: true, //修改swiper的父元素时，自动初始化swiper
+      disableOnInteraction: false //用户操作swiper之后，不禁止autoplay
+    });
+  }
 };
 </script>
-<style>
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-}
+<style scoped>
+
 </style>

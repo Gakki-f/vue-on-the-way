@@ -11,7 +11,7 @@ export default {
     name: "MidView"
 };
 </script>
-<style>
+<style scoped>
 .home-mid img {
     width: 100%;
     height: auto;

@@ -2,7 +2,7 @@
   <Swiper v-if="banners.length" :slides-per-view="1">
     <div class="swiper-slide" slot="swiper-item" v-for="item in banners">
       <a :href="item.link">
-        <img :src="item.image" alt />
+        <img :src="item.image" alt @load="imgLoad" />
       </a>
     </div>
     <div slot="swiper-pagination" class="swiper-pagination"></div>
@@ -24,8 +24,21 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      isLoad: true
+    };
+  },
   components: {
     Swiper
+  },
+  methods: {
+    imgLoad() {
+      if (this.isLoad) {
+        this.$emit("swiperImgLoad");
+        this.isLoad = false;
+      }
+    }
   }
 };
 </script>

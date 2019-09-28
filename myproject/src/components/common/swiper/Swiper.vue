@@ -53,10 +53,10 @@ export default {
       type: Number,
       default: 300
     },
-    slidesPerView: {
-      type: Number,
-      default: 'auto'
-    }
+    // slidesPerView: {
+    //   type: Number,
+    //   default: 'auto'
+    // }
   },
   data() {
     return {};
@@ -73,7 +73,7 @@ export default {
         clickable: true
       },
       speed: this.speed,
-      slidesPerView: this.slidesPerView,
+      // slidesPerView: this.slidesPerView,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
@@ -85,6 +85,8 @@ export default {
   }
 };
 </script>
-<style scoped>
-
+ 
+<style>
+.swiper-pagination-bullet{background: rgab(255,255,255,0.5);}
+.swiper-pagination-bullet-active{background:rgb(250, 26, 10);}
 </style>

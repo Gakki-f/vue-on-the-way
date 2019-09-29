@@ -21,3 +21,23 @@ export class Goods {
     this.services = services
   }
 }
+
+export class Shop{
+  constructor(shopInfo){
+    this.shopLogo = shopInfo.shopLogo,
+    this.name = shopInfo.name,
+    this.cSells = shopInfo.cSells,
+    this.cGoods = shopInfo.cGoods,
+    this.score = shopInfo.score
+    this.allGoodsUrl = shopInfo.allGoodsUrl
+  }
+}
+
+export class GoodsParam {
+  constructor(info, rule) {
+    // 注: images可能没有值(某些商品有值, 某些没有值)
+    this.image = info.images ? info.images[0] : '';
+    this.infos = info.set;
+    this.sizes = rule.tables;
+  }
+}

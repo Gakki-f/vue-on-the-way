@@ -12,7 +12,7 @@
     <div class="mid-info">
       <span>{{goods.columns[0]}}</span>
       <span>{{goods.columns[1]}}</span>
-      <span>{{goods.services[3].name}}</span>
+      <span>{{goods.services[2].name}}</span>
     </div>
     <div class="footer-info">
       <div v-for="item in goods.services.length-1" :key="item" class="services-item">

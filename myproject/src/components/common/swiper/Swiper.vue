@@ -25,7 +25,7 @@ export default {
     },
     loop: {
       type: Boolean,
-      default: false
+      default: true
     },
     direction: {
       type: String,
@@ -45,7 +45,7 @@ export default {
         return {
           delay: 3000,
           stopOnLastSlide: false,
-          disableOnInteraction: true
+          disableOnInteraction: false,
         };
       }
     },
@@ -53,10 +53,6 @@ export default {
       type: Number,
       default: 300
     },
-    // slidesPerView: {
-    //   type: Number,
-    //   default: 'auto'
-    // }
   },
   data() {
     return {};

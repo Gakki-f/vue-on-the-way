@@ -21,7 +21,10 @@ export class GoodsInfo {
   constructor(columns, itemInfo, services){
     this.title = itemInfo.title,
     this.newPrice = itemInfo.price
-    this.oldPrice = itemInfo.oldPrice
+    this.oldPrice = itemInfo.oldPrice,
+    this.highPrice = itemInfo.highNowPrice,
+    this.lowPrice = itemInfo.lowNowPrice,
+    this.desc = itemInfo.desc,
     this.realPrice = itemInfo.lowNowPrice
     this.discountDesc = itemInfo.discountDesc,
     this.discountBgColor = itemInfo.discountBgColor

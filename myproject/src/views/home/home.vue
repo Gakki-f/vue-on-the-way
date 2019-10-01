@@ -33,14 +33,13 @@ import NavBar from "components/common/navbar/NavBar";
 import Scroll from "components/common/scroll/Scroll";
 import TabControl from "components/content/tabControl/TabControl";
 import Goods from "components/content/goods/Goods";
-import BackTop from "components/content/backTop/BackTop";
 
 import homeSwiper from "./homechild/homeSwiper";
 import RecommendView from "./homechild/RecommendViews";
 import MidView from "./homechild/MidView";
 
 import { getHomeMultidata, getHomeGoods } from "network/home";
-import { itemListenerMix } from "common/mixin";
+import { itemListenerMix, backTopMix  } from "common/mixin";
 export default {
     data() {
         return {
@@ -53,13 +52,12 @@ export default {
             },
             currentType: "pop",
             tabOffsetTop: 0,
-            isShow: false,
             isFixed: false,
             saveY: 0,
             itemImgListener: null
         };
     },
-    mixins: [itemListenerMix],
+    mixins: [itemListenerMix, backTopMix],
     computed: {
         showGoods() {
             return this.goods[this.currentType].list;
@@ -73,7 +71,6 @@ export default {
         TabControl,
         Goods,
         Scroll,
-        BackTop
     },
     created() {
         // 1.请求数据
@@ -114,9 +111,6 @@ export default {
             }
             this.$refs.tabControl1.currentIndex = index;
             this.$refs.tabControl2.currentIndex = index;
-        },
-        backClick() {
-            this.$refs.scroll.scrollTo(0, 0);
         },
         defaultShow(position) {
             this.isShow = position.y < -500;

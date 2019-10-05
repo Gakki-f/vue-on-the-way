@@ -28,12 +28,7 @@ export default {
       this.$emit("shopClick");
     },
     buyNowClick() {
-      // this.$message('这是一条消息提示');
-      // console.log('111');
-       this.$message({
-          message: '恭喜你，这是一条成功消息',
-          type: 'success'
-        });
+       this.$toast.show('不准购买')
     }
   }
 };

@@ -9,7 +9,7 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-  cartList: [] // cartList:[商品1，商品2]数组来存放购物车一个个对象 
+  cartList:JSON.parse(localStorage.getItem('cartList')) || [] 
 }
 
 const store = new Vuex.Store({
@@ -20,4 +20,8 @@ const store = new Vuex.Store({
 
 })
 
+//监听每次调用mutations的时候,都会进这个方法，然后我们可以做一些自己想做的处理
+store.subscribe((mutations,state)=>{
+  localStorage.setItem('cartList',JSON.stringify(state.cartList))
+})
 export default store
